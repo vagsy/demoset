@@ -1,0 +1,388 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,address=no" name="format-detection"/>
+    <title>编辑个人信息</title>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/ui.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/usercenter.css"/>
+    <script type="text/javascript" src="<%=path %>/js/jquery-2.1.1.min.js"></script>
+    <script src="<%=basePath%>js/common/template-native.js"></script>
+    <script src="<%=basePath%>js/common/history.js"></script>
+    <script src="<%=basePath%>js/cityandcinema/cityandcinema.js"></script>
+   	<script>
+	    $(function(){
+	    	var userid="${user.uid }";
+   			var profile="${user.profile.nick }";
+	    	var userSex="${user.profile.sex}";
+	     	if(userSex==1){
+	    		male.className = "m-radio-span-0";
+	            female.className = "m-radio-span-1";
+	            female0.removeAttribute("checked");
+	            male0.setAttribute("checked","checked");
+	    	}else{
+	    		female.className = "m-radio-span-0";
+	            male.className = "m-radio-span-1";
+	            male0.removeAttribute("checked");
+		        female0.setAttribute("checked","checked");
+	    	} 
+		    
+		  	/**单选框**/
+		    function maleOnclick() {
+		        if (male.className == "m-radio-span-0") {
+		            male.className = "m-radio-span-0";
+		            female.className = "m-radio-span-1";
+		        } else {
+		            male.className = "m-radio-span-0";
+		            female.className = "m-radio-span-1";
+		            female0.removeAttribute("checked");
+		            male0.setAttribute("checked","checked");
+		        }
+		    }
+		    male.onclick = maleOnclick;
+		    male1.onclick = maleOnclick;
+		    function femaleOnclick() {
+		        if (female.className == "m-radio-span-0") {
+		            female.className = "m-radio-span-1";
+		            male.className = "m-radio-span-0";
+		        } else {
+		            female.className = "m-radio-span-0";
+		            male.className = "m-radio-span-1";
+		            male0.removeAttribute("checked");
+			        female0.setAttribute("checked","checked");
+			    }
+			}
+		    female.onclick = femaleOnclick;
+		    female1.onclick = femaleOnclick;
+			/**单选框**/
+			/*限制字符  */
+			function WidthCheck(str, maxLen){  
+				var w = 0;  
+				var tempCount = 0; 
+				        //length 获取字数数，不区分汉子和英文 
+				for (var i=0; i<str.value.length; i++) {  
+					//charCodeAt()获取字符串中某一个字符的编码 
+					var c = str.value.charCodeAt(i);  
+					//单字节加1  
+					if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)) {  
+						w++;  
+					} 
+					else {    
+						w+=2;  
+					}  
+					if (w > maxLen) {  
+						str.value = str.value.substr(0,i); 
+					break; 
+					}    
+				}  
+			}
+			$("#perinfor-nickname").keyup(function(event){
+				WidthCheck(this,16);
+			});
+			var perinforNickname=$('#perinfor-nickname'),
+				perinforCinema=$('#perinfor-Cinema');
+			perinforNickname.blur(function () {
+	            if ($(this).val()) {
+	                $("p:eq(0)").nextAll("span").remove();
+	                //$("p:eq(0)").after('<span class="verify-span">昵称不能为空！</span>');
+	                return false;
+	            } else {
+	                $("p:eq(0)").nextAll("span").remove();
+	                //$("p:eq(0)").after('<span class="verify-span">格式正确！</span>');
+	            }
+	        }).keyup(function () {
+	            $(this).triggerHandler('blur');
+	        });
+
+			var path="<%=path %>";
+	        $('#btn-keep').click(function () {
+			        var eleForms = {
+				       	perinforNickname: $('#perinfor-nickname'),
+				        perinforCinema: $('#perinfor-Cinema'),
+				        //gender: $('#m-radio input[name="gender"][checked]').val()
+		            }
+		            //var regNickname = /[0-9a-zA-Z]{6,20}/;
+		            //var regNickname = /[\u4e00-\u9fa5]/;
+		            //var regNickname = /[0-9a-zA-Z\u4e00-\u9fa5]{1,20}/;
+		            //var regNickname = /[1-9a-zA-Z\u4e00-\u9fa5`~!@#$%^&\*()-_=+\{\}\[\]\\\;\'\"\,\.\<\>\?\/]{1,16}/;
+/* 		            function checkBlankSpace(str){
+					    while(str.lastIndexOf(" ")>=0){
+					    	str = str.replace(" ","");
+					    }
+						if(str.length == 0){
+						    $("p:eq(0)").nextAll("span").remove();
+		                	$("p:eq(0)").after('<span class="verify-span">昵称不能为空！</span>');
+						}
+					} */
+		            //if (eleForms.perinforNickname.val() == '' || eleForms.perinforNickname.val() == ' ' || eleForms.perinforNickname.val().length == 0) {
+	                var str = eleForms.perinforNickname.val();
+	                while(str.lastIndexOf(" ")>=0){
+				    	str = str.replace(" ","");
+				    }
+				    if(str.length == 0){
+					    $("p:eq(0)").nextAll("span").remove();
+	                	$("p:eq(0)").after('<span class="verify-span">昵称不能为空！</span>');
+	                	return false;
+		            } else if (eleForms.perinforCinema.val() == '' || eleForms.perinforCinema.val().length == 0 ) {
+		                $("p:eq(1)").nextAll("span").remove();
+		                $("p:eq(1)").after('<span class="verify-span">设置影院！</span>');
+		                return false;
+		            } else {
+	            			function trim(str){ //删除左右两端的空格  
+								return str.replace(/(^\s*)|(\s*$)/g, "");  
+							} 
+				            var perinforNickname=$('#perinfor-nickname').val(),
+						        gender=$('#m-radio input[name="sex"][checked]').val();
+						    //var perinforCinema=$('#perinfor-Cinema').val();
+							var param={};
+							param.nick=trim(perinforNickname);
+							param.sex=gender;
+							//param.perinforCinema=perinforCinema;
+							//console.log(param);
+							$.ajax({
+								url:path+"/user/updateprofile.do",
+								type:"post",
+								data:param,
+								dataType:"json",
+								success: function(result){
+								console.log(result);
+								console.log(param);
+									if(result.status===0){
+// 										alert("修改成功！");
+										window.location.href=path+"/user/center.do";
+									}else{
+										alert(result.msg);
+									}
+								},
+								error:function(xhr){
+									alert("抱歉，无法连接到网络！");
+								}
+							});  
+		            }      
+	        });
+	        $('#btn-modifypsd').click(function () {
+	        	window.location.href=path+"/user/tochangepassword.do";
+	        });
+	        $('.setCinema').click(function () {
+        		var showCinemaOpts = {
+	    			'hideEle':['showWraper'],
+	    			'callback':'getFilmShowByCinema',
+	    			'cityId':'8022251040',
+	    			'cityNa me':'北京',
+	    			'locCityId':'8022251040',
+					'locCityName':'北京'
+   				}
+   				chooseCinemaName="";
+   				historyRec.replaceView({'viewId':'showWraper','callback':'hisback','nickName':$('#perinfor-nickname').val(),'cinemaName':$('#perinfor-Cinema').val()},"","");
+   				cinemaListView.init(showCinemaOpts,"<%=basePath%>");
+	        })	        
+		});
+		var path="<%=path %>";
+		var chooseCinemaName;
+		function getFilmShowByCinema(cinemaId,cinemaName,cityId,cityName,locCityId,locCityName){
+				chooseCinemaName = cinemaName;
+	        	window.history.back(-1);
+	        	$('#perinfor-Cinema').val(cinemaName);
+	        	if(chooseCinemaName){
+	        		$("p:eq(1)").nextAll("span").remove();
+	        	}
+	    }
+   	    var backData=function(){
+	    	$('.setCinema').click=(function () {
+        		var showCinemaOpts = {
+	    			'hideEle':['showWraper'],
+	    			'callback':'getFilmShowByCinema',
+	    			'cityId':'8022251040',
+	    			'cityName':'北京',
+	    			'locCityId':'8022251040',
+					'locCityName':'北京'
+   				}
+   				chooseCinemaName="";
+   				historyRec.replaceView({'viewId':'showWraper','callback':'hisback','nickName':$('#perinfor-nickname').val(),'cinemaName':$('#perinfor-Cinema').val()},"","");
+   				cinemaListView.init(showCinemaOpts,"<%=basePath%>");
+	        });
+	        $('#perinfor-nickname').val(data.nickName);
+	        if(!chooseCinemaName){
+	        	chooseCinemaName=data.cinemaName;
+	        }
+	        $('#perinfor-Cinema').val(chooseCinemaName);
+		}
+		//console.log(dataBack);
+	    function hisback(data){
+	    	$('.setCinema').click(setCinemaClick);
+	    	$('#btn-keep').click(btnKeepClick);
+			$('#btn-modifypsd').click(btnModifypsdClick);
+			male.onclick = maleOnclick;
+		    male1.onclick = maleOnclick;
+			female.onclick = femaleOnclick;
+		    female1.onclick = femaleOnclick;
+	        $('#perinfor-nickname').val(data.nickName);
+	        /*限制字符  */
+			function WidthCheck(str, maxLen){  
+				var w = 0;  
+				var tempCount = 0; 
+				        //length 获取字数数，不区分汉子和英文 
+				for (var i=0; i<str.value.length; i++) {  
+					//charCodeAt()获取字符串中某一个字符的编码 
+					var c = str.value.charCodeAt(i);  
+					//单字节加1  
+					if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)) {  
+						w++;  
+					} 
+					else {    
+						w+=2;  
+					}  
+					if (w > maxLen) {  
+						str.value = str.value.substr(0,i); 
+					break; 
+					}    
+				}  
+			}
+			$("#perinfor-nickname").keyup(function(event){
+				WidthCheck(this,16);
+			});
+	        if(!chooseCinemaName){
+	        	chooseCinemaName=data.cinemaName;
+	        }
+	        $('#perinfor-Cinema').val(chooseCinemaName);
+	    } 
+	   var setCinemaClick = function () {
+        		var showCinemaOpts = {
+	    			'hideEle':['showWraper'],
+	    			'callback':'getFilmShowByCinema',
+	    			'cityId':'8022251040',
+	    			'cityName':'北京',
+	    			'locCityId':'8022251040',
+					'locCityName':'北京'
+   				}
+   				chooseCinemaName="";
+   				historyRec.replaceView({'viewId':'showWraper','callback':'hisback','nickName':$('#perinfor-nickname').val(),'cinemaName':$('#perinfor-Cinema').val()},"","");
+   				cinemaListView.init(showCinemaOpts,"<%=basePath%>");
+	    }
+	    var btnKeepClick = function () {
+					var eleForms = {
+		                eleSubmit: $('#btn-submit'),
+				       	perinforNickname: $('#perinfor-nickname'),
+				        perinforCinema: $('#perinfor-Cinema'),
+				        //gender: $('#m-radio input[name="gender"][checked]').val()
+		            }
+		            //var regNickname = /[0-9a-zA-Z]{6,20}/;
+		            var str = eleForms.perinforNickname.val();
+	                while(str.lastIndexOf(" ")>=0){
+				    	str = str.replace(" ","");
+				    }
+				    if(str.length == 0){
+					    $("p:eq(0)").nextAll("span").remove();
+	                	$("p:eq(0)").after('<span class="verify-span">昵称不能为空！</span>');
+	                	return false;
+		            } else if (eleForms.perinforCinema.val() == '' || eleForms.perinforCinema.val().length == 0 ) {
+		                $("p:eq(1)").nextAll("span").remove();
+		                $("p:eq(1)").after('<span class="verify-span">设置影院！</span>');
+		                return false;
+		            } else {
+		            	    function trim(str){ //删除左右两端的空格  
+								return str.replace(/(^\s*)|(\s*$)/g, "");  
+							} 
+							var perinforNickname=$('#perinfor-nickname').val(),
+						        gender=$('#m-radio input[name="sex"][checked]').val();
+						    //var perinforCinema=$('#perinfor-Cinema').val();
+							var param={};
+							param.nick=trim(perinforNickname);
+							param.sex=gender;
+							//param.perinforCinema=perinforCinema;
+							//console.log(param);
+							$.ajax({
+								url:path+"/user/updateprofile.do",
+								type:"post",
+								data:param,
+								dataType:"json",
+								success: function(result){
+								console.log(result);
+								console.log(param);
+									if(result.status===0){
+// 										alert("修改成功！");
+										window.location.href=path+"/user/center.do";
+									}else{
+										alert(result.msg);
+									}
+								},
+								error:function(xhr){
+									alert("抱歉，无法连接到网络！");
+								}
+							});  
+		            } 	    	
+	    }
+	    var btnModifypsdClick = function () {
+	    	window.location.href=path+"/user/tochangepassword.do";
+	    }
+	    /**单选框**/
+		    function maleOnclick() {
+		        if (male.className == "m-radio-span-0") {
+		            male.className = "m-radio-span-0";
+		            female.className = "m-radio-span-1";
+		        } else {
+		            male.className = "m-radio-span-0";
+		            female.className = "m-radio-span-1";
+		            female0.removeAttribute("checked");
+		            male0.setAttribute("checked","checked");
+		        }
+		    }
+		    function femaleOnclick() {
+		        if (female.className == "m-radio-span-0") {
+		            female.className = "m-radio-span-1";
+		            male.className = "m-radio-span-0";
+		        } else {
+		            female.className = "m-radio-span-0";
+		            male.className = "m-radio-span-1";
+		            male0.removeAttribute("checked");
+			        female0.setAttribute("checked","checked");
+			    }
+			}
+			/**单选框**/ 
+	</script>
+</head>
+<body>
+<div id="showWraper" class="showWraper">
+	<div class="header pprl3 ptb8" align="center">
+	    <a href="javascript:history.back(-1);" class="fl icon24 i400"></a><span class="title">编辑个人信息</span>
+	</div>
+	<div class="form-order">
+	    <form action="" method="post">
+	        <p>
+	            <label for="perinfor-nickname">昵称</label><input type="text" name="nick" id="perinfor-nickname"  maxlength="16" value="${user.profile.nick }" placeholder="请输入昵称"/>
+	        </p>
+	        <div class="gender-span">
+	            <label class="gender-l">性别</label>
+	            <div id="m-radio">
+	                <span class="m-radio-span-0" id="male"></span>
+	                <input type="radio" style=" display: none;" name="sex" id="male0" value="1" checked="checked"/>
+	                <label for="male0" id="male1">男</label>
+	                <span class="m-radio-span-1" id="female"></span>
+	                <input type="radio" style=" display: none;" name="sex" id="female0" value="2"/>
+	                <label for="female0" id="female1">女</label>
+	            </div>
+	        </div>
+	        <p>
+	            <label id="store-value0" for="perinfor-Cinema">常去影院</label>
+	            <input type="text" name="perinforCinema" id="perinfor-Cinema" style="width: 40%;" readonly="readonly" placeholder="还未设置常去影院"/>
+	            <span class="film-set"><a class="setCinema">设置</a></span>
+	        </p>
+	        <div>
+	            <input type="button" id="btn-modifypsd" value="修改密码"/>
+	            <input type="button" id="btn-keep" value="保存"/>
+	        </div>
+	    </form>
+	</div>
+</div>
+</body>
+</html>

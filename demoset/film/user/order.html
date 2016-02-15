@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,address=no" name="format-detection"/>
+    <title>我的影票</title>
+    <link rel="stylesheet" type="text/css" href="../css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../css/ui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/usercenter.css"/>
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/fn.js"></script>
+    <script type="text/javascript" src="../js/jquery.ui.base.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.mask.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.confirm.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.loading.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.citySelector.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.tab.js"></script>
+    <script type="text/javascript">
+	     $(function(){
+	         	var path="..";
+    			var userid="${user.uid }";
+				var param={};
+				param.uid=userid;
+				param.type=0;
+		    	$.ajax({
+						url:path+"/user/order.do",
+						type:"get",
+						data:param,
+						dataType:"json",
+						success: function(result){
+							if(result.status===0){
+									var resdata=result.data;
+									//console.log(result);
+									var myTicket="";
+									var ulList="";
+									var ulAlist="";
+									var AulList="";
+									if(result.count===0){
+										$('.myTicket').html("<p style='text-align:center;'>您暂无影票</p>");
+									}else{
+										for(var i=0;i<resdata.length;i++){
+											if(resdata[i].orderstate==239||resdata[i].orderstate==939){//退款失败
+												var oAhref=".."+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+											    var oHref="<a>"+resdata[i].filmname+"</a>";
+											    var oState="<a href="#">"+resdata[i].orderstatestring+"</a>";
+												var oLibg= "<li class='no-bg-fail'><a>"+oState+"</a></li>";
+												var orderTime="";
+											}else if(resdata[i].orderstatestring=="退款中"){//退款中
+												var oAhref=".."+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+											    var oHref="<a>"+resdata[i].filmname+"</a>";
+											    var oState="<a href="#">"+resdata[i].orderstatestring+"</a>";
+												var oLibg= "<li class='failing'><a>"+oState+"</a></li>";
+												var orderTime="";
+											}else if(resdata[i].orderstate==231||resdata[i].orderstate==931||resdata[i].orderstatestring=="已使用"){//退款成功||异常退款成功||已使用
+											    var oAhref=".."+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+											    var oHref="<a>"+resdata[i].filmname+"</a>";
+											    var oState="<a href="#">"+resdata[i].orderstatestring+"</a>";
+												var oLibg= "<li class='used'>"+oState+"</li>";
+												var orderTime="";
+											}else if(resdata[i].paystate==4||resdata[i].orderstatestring=="未支付"){//未付款
+												var oAhref=".."+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+											    var oHref="<a>"+resdata[i].filmname+"</a>";
+												var oHref="<a>"+resdata[i].filmname+"</a>";
+												var oState="<a href="#">"+resdata[i].orderstatestring+"</a>";
+												var oLibg= "<li class='no-bg'>"+oState+"</li>";
+												/*倒计时*/
+												var curTime = Math.round(new Date().getTime()/1000);
+												var ct = resdata[i].createtime;
+												var distime=curTime-ct;
+												var needTime = 850-distime;
+												var uid=resdata[i].uid;
+												var orderid=resdata[i].oid;
+												//console.log(uid);
+												//console.log(orderid);
+												function countDown(){
+													if(needTime>0){
+														needTime--;
+														//console.log(needTime);
+														var showTime= new Date(needTime*1000).format('mm分ss秒');
+													}else if(needTime==0){
+														//console.log(needTime);
+														clearInterval(timer);
+														var param={};
+														param.uid=uid;
+														param.orderid=orderid;
+														$.ajax({
+															url:path+"/trade/cancelorder.do",
+															type:"get",
+															data:param,
+															dataType:"json",
+															success: function(result){
+															    if(status===0){
+															    	$.Confirm({html:"影票支付超时了哦，快来下新单吧~",title:"提示",buttons:{"确定":function(){$(".myTicket-block:contains('未支付')").hide();}}});
+																}else{
+																	//alert("错误");
+																	//alert(result.msg);
+																	$.Confirm({html:"影票支付超时了哦，快来下新单吧~",title:"提示",buttons:{"确定":function(){$(".myTicket-block:contains('未支付')").hide();}}});
+																}
+															},
+															error:function(xhr){
+																//alert("抱歉，无法连接到网络！");
+																$.Confirm({html:"影票支付超时了哦，快来下新单吧~",title:"提示",buttons:{"确定":function(){$(".myTicket-block:contains('未支付')").hide();}}});
+															}
+														});
+// 														alert("影票支付超时了哦，快来下新单吧~");
+// 														needTime=null;
+// 														$('.myTicket-block').eq(0).hide();
+													}
+													//console.log(showTime);
+													$('.list-con-3>li>a').html(showTime);
+												}
+												var timer=setInterval(countDown, 1000);
+// 												if(needTime>0){
+// 													var timer = setInterval(countDown, 1000);
+// 												}else if(needTime==0){
+// 													clearInterval(timer);
+// 													timer=null;
+// 													needTime=null;
+// 												}
+												/*倒计时*/
+												var orderTime="<ul class='list-con-3'><li>请您在<a></a>内完成支付,超时系统将自动取消订单</li></ul>";
+											}else if(resdata[i].orderstatestring=="已上映"){//已上映
+												var oAhref=".."+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+											    var oHref="<a>"+resdata[i].filmname+"</a>";
+											    var oState="<a href="#">"+resdata[i].orderstatestring+"</a>";
+												var oLibg= "<li class='used'>"+oState+"</li>";
+												var orderTime="";
+											}else if((resdata[i].paystate==0)&&(resdata[i].orderstate=111)){//已付款未确认&&新创建
+												var oAhref=".."+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+											    var oHref="<a>"+resdata[i].filmname+"</a>";
+											    var oState="<a>"+resdata[i].orderstatestring+"</a>";
+												var oLibg= "<li class='no-bg'>"+oState+"</li>";
+												var orderTime="";
+											}else{
+												var oAhref=".."+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+											    var oHref="<a>"+resdata[i].filmname+"</a>";
+											    var oState="<a href="#">"+resdata[i].orderstatestring+"</a>";
+												var oLibg= "<li class='no-use'>"+oState+"</li>";
+												var orderTime="";
+											}
+										    ulList += "<a href="#" class='tictetList-a'><div class='myTicket-block'><ul class='myTicketList'><li class='myTicketList-li'><ul class='list-con-1'><li>"+oHref+"</li>"+oLibg+"</ul><ul class='list-con-2'><li>放映时间: "+new Date(resdata[i].filmstarttime*1000).format('yyyy-MM-dd hh:mm')+"</li></ul>"+orderTime+"</li></ul></div></a>";
+										}
+										$('.myTicket').html(ulList);
+									}
+							}else{
+								alert(result.msg);
+							}
+						},
+						error:function(xhr){
+							alert("获取影片列表失败！");
+						}
+				});
+		 })
+    </script>
+</head>
+<body>
+<div class="header pprl3 ptb8 headPos" align="center">
+    <a href="javascript:history.back(-1);" class="fl icon24 i400"></a><span class="title">我的影票</span>
+</div>
+<div class="conPos">
+	<div class="myTicket" id="myTicket">
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">特殊身份(2张)</a></li>
+                            <li class="no-bg">未支付</li>
+                        </ul>
+                        <ul class="list-con-2">
+                            <li>放映时间: 2013-11-28 19:00</li>
+                        </ul>
+                        <ul class="list-con-3">
+                            <li>请您在<a>14分30秒</a>内完成支付,超时系统将自动取消订单</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">控制(2张)</a></li>
+                            <li class="no-bg-ing">退款中</li>
+                        </ul>
+                        <ul class="list-con-2">
+                            <li>放映时间: 2013-11-25 12:45</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">特殊身份(2张)特殊身份(2张)特殊身份(2张)特殊身份(2张)</a></li>
+                            <li class="no-bg">未支付</li>
+                        </ul>
+                        <ul class="list-con-2">
+                            <li>放映时间: 2013-11-28 19:00</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">控制(2张)</a></li>
+                            <li class="no-bg-fail">退款失败</li>
+                        </ul>
+                        <ul class="list-con-2">
+                            <li>放映时间: 2013-11-25 12:45</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">控制</a></li>
+                            <li class="no-use">未使用</li>
+                        </ul>
+                        <ul class="list-con-2">
+                            <li>放映时间: 2013-11-26 21:15</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">控制(2张)</a></li>
+                            <li class="used">已使用</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">控制(2张)</a></li>
+                            <li class="used">已使用</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">特殊身份(2张)</a></li>
+                            <li class="used">已使用</li>
+                        </ul>
+                        <ul class="list-con-2">
+                            <li>放映时间: 2013-11-28 19:00</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+        <a href="#" class='tictetList-a'>
+            <div class='myTicket-block'>
+                <ul class="myTicketList">
+                    <li class="myTicketList-li">
+                        <ul class="list-con-1">
+                            <li><a href="#">特殊身份(2张)</a></li>
+                            <li class="used">已使用</li>
+                        </ul>
+                        <ul class="list-con-2">
+                            <li>放映时间: 2013-11-28 19:00</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </a>
+	</div>
+</body>
+</html>

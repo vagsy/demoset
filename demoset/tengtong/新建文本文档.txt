@@ -1,0 +1,18 @@
+100px baner
+40px nav
+287px pic
+110 header
+337px yiceng
+372px  erceng 
+420px sanceng
+145px shoufei
+35px footer
+100px
+
+547  550px
+1129   1140px
+280px
+
+
+
+

@@ -1,0 +1,112 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,address=no" name="format-detection"/>
+    <title>用户注册</title>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/ui.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/usercenter.css"/>
+    <script type="text/javascript" src="<%=path %>/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/jquery.ui.base.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/jquery.ui.mask.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/jquery.ui.confirm.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/jquery.ui.loading.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/jquery.ui.citySelector.js"></script>
+	<script type="text/javascript" src="<%=path %>/js/jquery.ui.tab.js"></script>
+    <script type="text/javascript">
+	    $(function(){
+		    /**单选框**/
+		    autoCheckbox.onclick = function () {
+		        if ((autoCheckbox.className == "m-radio-box-0")) {
+		            autoCheckbox.className = "m-radio-box-1";
+		            autologin.removeAttribute('checked');
+		        } else {
+		            autoCheckbox.className = "m-radio-box-0";
+		            autologin.setAttribute("checked","checked");
+		        }
+		    }
+		    /**单选框**/
+			var registerTel=$('#register-tel');
+			var regTel = /^1[3|4|5|8][0-9]\d{8}$/;
+			registerTel.blur(function () {
+			    if (!regTel.test($(this).val())) {
+			        $("p:eq(0)").nextAll("span").remove();
+			        //$("p:eq(0)").after('<span class="verify-span">手机号格式错误！</span>');
+			        return false;
+			    }
+			}).keyup(function () {
+			    $(this).triggerHandler('blur');
+			});
+		    var path="<%=path %>";
+	        $('#btn-submit').click(function () {
+		        var eleForms = {
+	                eleSubmit: $('#btn-submit'),
+	                registerTel: $('#register-tel'),
+	                autologin: $('input[name="autologin"][checked]').val()
+	            }
+	            //console.log(eleForms.autologin);
+				var regTel = /^1[3|4|5|8][0-9]\d{8}$/;
+	            if (!regTel.test(eleForms.registerTel.val())) {
+	                $("p:eq(0)").nextAll("span").remove();
+	                $("p:eq(0)").after('<span class="verify-span">手机号码格式错误！</span>');
+	                return false;
+	            } else if(eleForms.autologin==undefined){
+	            	alert("请阅读《用户注册协议》");
+	            }else{
+		            /**用户是否存在**/
+			        var registerTel = $('#register-tel').val(),
+			           	registerVerifiycode = $('#register-verifiycode').val();
+					var existuser={};
+					existuser.value=registerTel;
+					existuser.type=1;
+				    $.ajax({
+							url:path+"/user/checkuserexist.do",
+							type:"get",
+							data:existuser,
+							dataType:"json",
+							success: function(result){
+							    if(result.isexist===0){
+							    	window.location.href=path+"/user/setpassword.do?mobile="+existuser.value+"";
+								}else{
+									$.Confirm({html:"此手机号已注册，是否直接登录？",title:"提示",buttons:{"取消":function(){},"确定": function (){window.location.href=path+"/user/center.do";}}});
+								}
+							},
+							error:function(xhr){
+								alert("抱歉，无法连接到网络！");
+							}
+						});	
+	            }
+	        });   
+		})
+	</script>
+</head>
+<body>
+<div class="header pprl3 ptb8" align="center">
+    <a href="javascript:history.back(-1);" class="fl icon24 i400"></a><span class="title">注册</span>
+</div>
+<div class="form-order">
+    <form action="" method="post">
+        <p>
+            <label for="register-tel">手机号</label><input type="tel" name="mobile" id="register-tel" maxlength="11" placeholder="请输入手机号" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+        </p>
+        <div id="read-agreement">
+             <span class="m-radio-box-0" id="autoCheckbox"><a style="opacity: 0;">aa</a>
+            </span>
+            <input type="checkbox" style="display: none;" name="autologin" id="autologin" value="0" checked="checked"/>
+            我已阅读并同意《<a href="<%=path %>/xieyi.html" style="text-decoration: underline;font-size: 13px;">用户注册协议</a>》
+        </div>
+        <input type="button" id="btn-submit" value="下一步"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,688 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>index</title>
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $footer_1_li = $("#footer_1 ul li");
+	$footer_1_li.mouseover(function(){
+    	var index =  $footer_1_li.index(this);
+		$("#footer_1_r > div").eq(index).show().siblings().hide();
+	})
+	var $content_3_bottom_l_li = $("#content_3_bottom_l ul li");
+	$content_3_bottom_l_li.mouseover(function(){
+		var index =  $content_3_bottom_l_li.index(this);
+		$("#content_3_bottom_c_t > div").eq(index).show().siblings().hide();
+	})
+	var $content_2_r_bottom_li = $(".content_2_r_bottom ul li");
+	$content_2_r_bottom_li.mouseover(function(){
+		var index = $content_2_r_bottom_li.index(this);
+		$("#content_2_r_con_t > div").eq(index).show().siblings().hide();
+	})
+})
+</script>
+</head>
+<body>
+<div class="contianer">
+    <!--头部begin-->
+	<div class="top">
+    	<div id="banner">
+        	<a href="#"><img src="image/logo.jpg" id="logo" /></a>
+            <img src="image/banner_zi.jpg" id="banner_zi" />
+       	</div>
+        <div id="nav">
+        	<div id="nav_con">
+            	<ul>
+                	<li><a href="#">网站首页</a></li>
+                    <li><a href="#">医院概况</a></li>
+                    <li><a href="#">疼痛中心</a></li>
+                    <li><a href="#">最新资讯</a></li>
+                    <li><a href="#">医师团队</a></li>
+                    <li><a href="#">中医疗法</a></li>
+                    <li><a href="#">来院路线</a></li>
+                    <li><a href="#">预约挂号</a></li>
+                    <li><a href="#">手机站</a></li>
+                    <li><a href="#">微信网站</a></li>
+                    <li><a href="#">加入收藏</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="banner_img"><img src="image/top_pic_1.png" /></div>
+        <div id="f_nav">
+        	<div id="f_nav_l"></div>
+            <div id="f_nav_cen">
+            	<ul>
+                	<li><a href="#">痛风</a></li>
+                    <li><a href="#">颈椎病</a><img src="image/f_nav_hot.jpg" id="hot"/></li>
+                    <li><a href="#">肩周炎</a></li>
+                    <li><a href="#">椎间盘突出症</a></li>
+                    <li><a href="#">关节炎</a><img src="image/f_nav_hot.jpg" id="hot"/></li>
+                    <li><a href="#">偏头痛</a><img src="image/f_nav_hot.jpg" id="hot"/></li>
+                    <li><a href="#">三叉神经痛</a></li>
+                    <li><a href="#">面神经麻痹</a></li>
+                    <li><a href="#">骨质增生</a></li>
+                    <li><a href="#">骨质疏松</a></li>
+                    <li><a href="#">网球肘</a></li>
+                    <li><a href="#">雷诺病</a></li>
+                    <li><a href="#">血栓闭塞性脉管炎</a></li>
+                    <li><a href="#">软组织损伤</a></li>
+                </ul>
+            </div>
+            <div id="f_nav_r"></div>
+        </div>
+    </div>
+    <!--头部end-->
+    <div class="content">
+     	<!--站内搜索-->
+        <div id="so">
+            <div id="hotsou">
+                <img src="image/hotsou.jpg" />
+                <a href="#">颈椎病的治疗</a>
+                <a href="#">肩周炎的治疗</a>
+                <a href="#">腰间盘突出的治疗</a>
+                <a href="#">类风湿性关节炎</a>
+                <a href="#">骨质增生的治疗</a>
+            </div>
+            <div id="zhanso">
+                <input value="请输入搜索关键词" style="height:20px; width:195px; margin:0 5px 0 0"/>
+                <a href="#"><img src="image/zhanneiso.jpg" /></a>
+            </div>
+        </div>
+        <!--站内搜索-->
+        <!--一层-->
+        <div class="content_1">
+        	<div id="content_1_l">
+            	<ul>
+                	<li><h1>疼痛诊疗中心</h1></li>
+                    <li><a href="#"><img src="image/con_1_l_pic.jpg" /></a></li>
+                    <li><span><a id="con_1_l_zi">沪上唯一</a><a href="#">	上海唯一疼痛特诊中心</a></span></li>
+                    <li><span><a id="con_1_l_zi">大专科</a><a href="#">	多学科专家	全套诊疗手段</a></span></li>
+                    <li><span><a id="con_1_l_zi">中医特色</a><a href="#">	从根源治疗疼痛	标本兼治</a></span></li>
+                </ul>
+            </div>
+            <div id="content_1_c">
+            	<ul>
+                	<h3>昆明医科大附三院与云南疼痛病医院启动</h3>
+                    <li><a href="#"><img src="image/content_1_c_pic.jpg" id="content_1_c_img"/></a><span id="content_1_c_des">	&nbsp;&nbsp;&nbsp;&nbsp;记者有幸采访到了针灸科主任医师马维新，他正在观察患者的病情进展情况，得知院方通知了记者的请求，他非常歉意的告诉记者，需要等他把几个病人看完。这一等就是2个钟头。记者旁观者马主任陆续为8位...<a style="color:#F00; text-decoration:none;" href="#" style="text-decoration:none;">[详细]</a></span></li>
+                    <div style="float:left;width:445px;border-bottom:1px dashed #E3E3E3; margin: 20px 0 20px 0;height:2px; font-size:1px; clear:both; overflow:hidden;"></div>
+                    <li id="content_1_c_li"><img src="image/content_1_c_hot1.jpg" id="content_1_c_li_img"/><a href="#">"云南省首届‘飞翔杯’ 中老年舞蹈大赛"盛大开幕</a></li>
+                    <li id="content_1_c_li"><img src="image/content_1_c_hot2.jpg" id="content_1_c_li_img"/><a href="#">为供弟妹上学，花季少女过度劳累致疼痛病</a></li>
+                    <li id="content_1_c_li"><img src="image/content_1_c_hot2.jpg" id="content_1_c_li_img"/><a href="#">云南疼痛病医院将抗讲座：摆脱激素，控制类风湿</a></li>
+                    <li id="content_1_c_li"><img src="image/content_1_c_hot3.jpg" id="content_1_c_li_img"/><a href="#">云南疼痛病医院远程会诊中心正式启动</a></li>
+                    <li id="content_1_c_li"><img src="image/content_1_c_hot3.jpg" id="content_1_c_li_img"/><a href="#">第七届全国疼痛科主任峰会顺利召开</a></li>
+                </ul>
+            </div>
+            <div id="content_1_r">
+            	<a href="#"><div id="content_1_r_zixun"><img src="image/content_1_r_zixun_swt.jpg" id="content_1_r_zixun_img"/></div></a>
+                <a href="#"><div id="content_1_r_zixun"><img src="image/content_1_r_zixun_qq.jpg" id="content_1_r_zixun_img"/></div></a>
+                <a href="#"><div id="content_1_r_zixun"><img src="image/content_1_r_zixun_yygh.jpg" id="content_1_r_zixun_img"/></div></a>
+                <a href="#"><div id="content_1_r_zixun"><img src="image/content_1_r_zixun_tel.jpg" id="content_1_r_zixun_img"/></div></a>
+                <div id="content_1_r_jieshao">
+                	<a href="jianjie"><div id="content_1_r_jieshao_x"></div></a>
+                    <a href="jieshao"><div id="content_1_r_jieshao_x"></div></a>
+                    <a href="liaofa"><div id="content_1_r_jieshao_x"></div></a>
+                    <a href="luxian"><div id="content_1_r_jieshao_x"></div></a>
+                </div>
+            </div>
+        
+        </div>
+    	<!--一层-->
+        <!--二层-->
+        <div class="content_2">
+        	<div class="content_2_l">
+            	<div class="content_2_l_one"><h1>诊疗范围</h1> <h3>Diagnoses range</h3></div>
+                <div class="content_2_l_two">
+                	<div class="content_2_l_tit"><a href="#">• 骨关节痛</a></div>
+                    <div>
+                    	<div class="content_2_l_con"><a href="#">颈椎病</a></div>
+                        <div class="content_2_l_con"><a href="#">腰间盘突出</a></div>
+                        <div class="content_2_l_con"><a href="#">肩周炎</a></div>
+                        <div class="content_2_l_con"><a href="#">痛风</a></div>
+                        <div class="content_2_l_con"><a href="#">骨质疏松</a></div>
+                        <div class="content_2_l_con"><a href="#">骨质增生</a></div>
+                    </div>
+                </div>
+                <div class="content_2_l_three">
+                    <div class="content_2_l_tit"><a href="#">• 神经痛</a></div>
+                    <div>
+                    	<div class="content_2_l_con"><a href="#">三叉神经痛</a></div>
+                        <div class="content_2_l_con"><a href="#">坐骨神经痛</a></div>
+                        <div class="content_2_l_con"><a href="#">面瘫</a></div>
+                        <div class="content_2_l_con"><a href="#">偏头痛 </a></div>
+                    </div>
+                </div>
+                <div class="content_2_l_four">
+                    <div class="content_2_l_tit"><a href="#">• 软组织痛</a></div>
+                    <div>
+                    	<div class="content_2_l_con"><a href="#">腰肌劳损</a></div>
+                        <div class="content_2_l_con"><a href="#">急性腰扭伤</a></div>
+                        <div class="content_2_l_con"><a href="#">网球肘</a></div>
+                        <div class="content_2_l_con"><a href="#">软组织损伤</a></div>
+                    </div>
+                </div>
+                <div class="content_2_l_five">
+                    <div class="content_2_l_tit"><a href="#">• 其他</a></div>
+                    <div>
+                    	<div class="content_2_l_con"><a href="#">雷诺病</a></div>
+                        <div class="content_2_l_con"><a href="#">血栓闭塞性脉管炎</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_2_r">
+            	<div class="content_2_r_tit">
+                	<div class="content_2_r_tit_1"><span class="content_2_r_tit_1_ch">名医专栏</span> <span class="content_2_r_tit_1_en">Famous Doctors</span></div>
+                    <div class="content_2_r_tit_2"></div>
+                </div>
+                <div id="content_2_r_con_t">
+                	<div class="content_2_r_con">
+                        <div class="content_2_r_con_img"><img src="image/index_zhuanjia1.jpg"/></div>
+                        <div class="content_2_r_con_des">
+                            <div class="content_2_r_con_des_1">
+                                <ul>
+                                    <li><span class="content_2_r_con_des_1_name">宋常清</span>	<span class="content_2_r_con_des_1_zhiwei">业务院长	主任医师</span></li>
+                                    <li><span class="content_2_r_con_des_1_say">他说：</span><span class="content_2_r_con_des_1_yu">将心比心，用我的爱心、诚心、细心，换您的舒心</span></li>
+                                </ul>
+                            </div>
+                            <div class="content_2_r_con_des_2">
+                            <span class="content_2_r_con_des_2_span">擅长：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病、肩周炎
+                            </div>
+                            <div class="content_2_r_con_des_3">
+                            <span class="content_2_r_con_des_3_span">简介：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病
+                            </div>
+                            <div class="content_2_r_con_des_4"><a href="1" class="content_2_r_con_des_4_a"></a><a href="2" class="content_2_r_con_des_4_a"></a></div>
+                        </div>
+                    </div>
+                    <div class="content_2_r_con hide">
+                        <div class="content_2_r_con_img"><img src="image/index_zhuanjia2.jpg"/></div>
+                        <div class="content_2_r_con_des">
+                            <div class="content_2_r_con_des_1">
+                                <ul>
+                                    <li><span class="content_2_r_con_des_1_name">王海</span>	<span class="content_2_r_con_des_1_zhiwei">业务院长	主任医师</span></li>
+                                    <li><span class="content_2_r_con_des_1_say">他说：</span><span class="content_2_r_con_des_1_yu">将心比心，用我的爱心、诚心、细心，换您的舒心</span></li>
+                                </ul>
+                            </div>
+                            <div class="content_2_r_con_des_2">
+                            <span class="content_2_r_con_des_2_span">擅长：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病、肩周炎
+                            </div>
+                            <div class="content_2_r_con_des_3">
+                            <span class="content_2_r_con_des_3_span">简介：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病
+                            </div>
+                            <div class="content_2_r_con_des_4"><a href="1" class="content_2_r_con_des_4_a"></a><a href="2" class="content_2_r_con_des_4_a"></a></div>
+                        </div>
+                    </div>
+                    <div class="content_2_r_con hide">
+                        <div class="content_2_r_con_img"><img src="image/index_zhuanjia3.jpg"/></div>
+                        <div class="content_2_r_con_des">
+                            <div class="content_2_r_con_des_1">
+                                <ul>
+                                    <li><span class="content_2_r_con_des_1_name">肖建桥</span>	<span class="content_2_r_con_des_1_zhiwei">业务院长	主任医师</span></li>
+                                    <li><span class="content_2_r_con_des_1_say">他说：</span><span class="content_2_r_con_des_1_yu">将心比心，用我的爱心、诚心、细心，换您的舒心</span></li>
+                                </ul>
+                            </div>
+                            <div class="content_2_r_con_des_2">
+                            <span class="content_2_r_con_des_2_span">擅长：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病、肩周炎
+                            </div>
+                            <div class="content_2_r_con_des_3">
+                            <span class="content_2_r_con_des_3_span">简介：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病
+                            </div>
+                            <div class="content_2_r_con_des_4"><a href="1" class="content_2_r_con_des_4_a"></a><a href="2" class="content_2_r_con_des_4_a"></a></div>
+                        </div>
+                    </div>
+                    <div class="content_2_r_con hide">
+                        <div class="content_2_r_con_img"><img src="image/index_zhuanjia4.jpg"/></div>
+                        <div class="content_2_r_con_des">
+                            <div class="content_2_r_con_des_1">
+                                <ul>
+                                    <li><span class="content_2_r_con_des_1_name">陈文辉</span>	<span class="content_2_r_con_des_1_zhiwei">业务院长	主任医师</span></li>
+                                    <li><span class="content_2_r_con_des_1_say">他说：</span><span class="content_2_r_con_des_1_yu">将心比心，用我的爱心、诚心、细心，换您的舒心</span></li>
+                                </ul>
+                            </div>
+                            <div class="content_2_r_con_des_2">
+                            <span class="content_2_r_con_des_2_span">擅长：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病、肩周炎
+                            </div>
+                            <div class="content_2_r_con_des_3">
+                            <span class="content_2_r_con_des_3_span">简介：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病
+                            </div>
+                            <div class="content_2_r_con_des_4"><a href="1" class="content_2_r_con_des_4_a"></a><a href="2" class="content_2_r_con_des_4_a"></a></div>
+                        </div>
+                    </div>
+                    <div class="content_2_r_con hide">
+                        <div class="content_2_r_con_img"><img src="image/index_zhuanjia2.jpg"/></div>
+                        <div class="content_2_r_con_des">
+                            <div class="content_2_r_con_des_1">
+                                <ul>
+                                    <li><span class="content_2_r_con_des_1_name">董丽杰</span>	<span class="content_2_r_con_des_1_zhiwei">业务院长	主任医师</span></li>
+                                    <li><span class="content_2_r_con_des_1_say">他说：</span><span class="content_2_r_con_des_1_yu">将心比心，用我的爱心、诚心、细心，换您的舒心</span></li>
+                                </ul>
+                            </div>
+                            <div class="content_2_r_con_des_2">
+                            <span class="content_2_r_con_des_2_span">擅长：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病、肩周炎
+                            </div>
+                            <div class="content_2_r_con_des_3">
+                            <span class="content_2_r_con_des_3_span">简介：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病
+                            </div>
+                            <div class="content_2_r_con_des_4"><a href="1" class="content_2_r_con_des_4_a"></a><a href="2" class="content_2_r_con_des_4_a"></a></div>
+                        </div>
+                    </div>
+                    <div class="content_2_r_con hide">
+                        <div class="content_2_r_con_img"><img src="image/index_zhuanjia1.jpg"/></div>
+                        <div class="content_2_r_con_des">
+                            <div class="content_2_r_con_des_1">
+                                <ul>
+                                    <li><span class="content_2_r_con_des_1_name">张金凤</span>	<span class="content_2_r_con_des_1_zhiwei">业务院长	主任医师</span></li>
+                                    <li><span class="content_2_r_con_des_1_say">他说：</span><span class="content_2_r_con_des_1_yu">将心比心，用我的爱心、诚心、细心，换您的舒心</span></li>
+                                </ul>
+                            </div>
+                            <div class="content_2_r_con_des_2">
+                            <span class="content_2_r_con_des_2_span">擅长：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病、肩周炎
+                            </div>
+                            <div class="content_2_r_con_des_3">
+                            <span class="content_2_r_con_des_3_span">简介：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病
+                            </div>
+                            <div class="content_2_r_con_des_4"><a href="1" class="content_2_r_con_des_4_a"></a><a href="2" class="content_2_r_con_des_4_a"></a></div>
+                        </div>
+                    </div>
+                    <div class="content_2_r_con hide">
+                        <div class="content_2_r_con_img"><img src="image/index_zhuanjia4.jpg"/></div>
+                        <div class="content_2_r_con_des">
+                            <div class="content_2_r_con_des_1">
+                                <ul>
+                                    <li><span class="content_2_r_con_des_1_name">崔玉成</span>	<span class="content_2_r_con_des_1_zhiwei">业务院长	主任医师</span></li>
+                                    <li><span class="content_2_r_con_des_1_say">他说：</span><span class="content_2_r_con_des_1_yu">将心比心，用我的爱心、诚心、细心，换您的舒心</span></li>
+                                </ul>
+                            </div>
+                            <div class="content_2_r_con_des_2">
+                            <span class="content_2_r_con_des_2_span">擅长：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病、肩周炎
+                            </div>
+                            <div class="content_2_r_con_des_3">
+                            <span class="content_2_r_con_des_3_span">简介：</span>颈椎病、肩周炎、痛风、骨质疏松、骨质增生、颈椎病、肩周炎、痛风、骨质增生、颈椎病
+                            </div>
+                            <div class="content_2_r_con_des_4"><a href="1" class="content_2_r_con_des_4_a"></a><a href="2" class="content_2_r_con_des_4_a"></a></div>
+                        </div>
+                    </div>
+               </div>       
+                        
+                <div class="content_2_r_bottom">
+                	<ul>
+                    	<li><a href="#">宋常清</a></li>
+                        <li><a href="#">王海</a></li>
+                        <li><a href="#">肖建桥</a></li>
+                        <li><a href="#">陈文辉</a></li>
+                        <li><a href="#">董丽杰</a></li>
+                        <li><a href="#">张金凤</a></li>
+                        <li><a href="#">崔玉成</a></li>
+                        <li><a href="#">全部</a></li>                     
+                    </ul>
+                </div>
+            
+            </div>
+        </div>
+        <!--二层-->
+        <!--三层-->
+        <div class="content_3">
+        	<div id="content_3_top">
+            	<div id="content_3_top_l">
+                	<span id="content_3_top_l_1">特色诊疗</span>
+                    <span id="content_3_top_l_2">Specialty Clinics</span>
+                </div>
+                <div id="content_3_top_r"></div>
+            </div>
+            <div id="content_3_bottom">
+            	<div id="content_3_bottom_l">
+                	<ul>
+                    	<li id="content_3_bottom_l_li_h"><a href="#">颈椎病</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">腰椎盘突出</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">强直性脊柱炎</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">风湿类风湿</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">股骨头坏死</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">骨质增生</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">肩周炎</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">带状孢疹</a></li>
+                        <li id="content_3_bottom_l_li_h"><a href="#">三叉神经痛</a></li>
+                    </ul>
+                </div>
+                <div id="content_3_bottom_c_t">
+                    <div id="content_3_bottom_c">
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起颈椎病的原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">颈椎病有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">颈椎病怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗颈椎病？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防颈椎病？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>颈椎病颈椎病颈椎病颈椎病颈椎病颈椎病</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                         
+                    <div id="content_3_bottom_c" class="hide">    
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起腰椎盘突出的原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">腰椎盘突出有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">腰椎盘突出怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗腰椎盘突出？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防腰椎盘突出？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>防腰椎盘突出防腰椎盘突出防腰椎盘突出</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_3_bottom_c" class="hide">    
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起强直性脊柱炎的原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">强直性脊柱炎有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">强直性脊柱炎怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗强直性脊柱炎？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防强直性脊柱炎？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>强直性脊柱炎强直性脊柱炎强直性脊柱炎</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_3_bottom_c" class="hide">    
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起风湿类风湿的原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">风湿类风湿有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">风湿类风湿怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗风湿类风湿？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预风湿类风湿？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>风湿类风湿风湿类风湿风湿类风湿风湿类风湿</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_3_bottom_c" class="hide">    
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起股骨头坏死的原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">股骨头坏死有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">股骨头坏死怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗股骨头坏死？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防股骨头坏死？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>股骨头坏死股骨头坏死股骨头坏死股骨头坏死</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_3_bottom_c" class="hide">    
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起骨质增生原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">骨质增生有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">骨质增生怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗骨质增生？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防骨质增生？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>骨质增生骨质增生骨质增生骨质增生骨质增生</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_3_bottom_c" class="hide">    
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起肩周炎的原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">肩周炎有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">肩周炎怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治肩周炎？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防肩周炎？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>肩周炎肩周炎肩周炎肩周炎肩周炎肩周炎</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_3_bottom_c" class="hide">   
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起带状孢疹的原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">带状孢疹有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">带状孢疹怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗带状孢疹？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防带状孢疹？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>带状孢疹带状孢疹带状孢疹带状孢疹带状孢疹</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content_3_bottom_c" class="hide">   
+                        <div id="content_3_bottom_c_tab">
+                            <div id="content_3_bottom_c_top">
+                                <a href="#"><img src="image/content_3_bottom_c_top_img.jpg"></a>
+                                <div id="content_3_bottom_c_top_r">
+                                    <ul>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_1.png"><span id="content_3_bottom_c_top_r_li_span">病因</span><a href="#" style="margin:0 0 0 27px;">引起三叉神经痛原因是什么？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_2.png"><span id="content_3_bottom_c_top_r_li_span">症状体征</span><a href="#">三叉神经痛有什么症状？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_3.png"><span id="content_3_bottom_c_top_r_li_span">鉴别诊断</span><a href="#">三叉神经痛怎么检查诊断？</a></li>
+                                        <li id="content_3_bottom_c_top_r_li_h"><img src="image/index_4.png"><span id="content_3_bottom_c_top_r_li_span">治疗方法</span><a href="#">如何治疗三叉神经痛？</a></li>
+                                        <li><img src="image/index_5.png"><span id="content_3_bottom_c_top_r_li_span">预防保健</span><a href="#">如何预防三叉神经痛？</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="content_3_bottom_c_bottom">
+                                <div id="content_3_bottom_c_bottom_1"><span>治疗技术</span></div>
+                                <div id="content_3_bottom_c_bottom_2">
+                                    <div id="content_3_bottom_c_bottom_2_h">
+                                        <h2>三叉神经痛三叉神经痛三叉神经痛三叉神经痛</h2>
+                                    </div>
+                                    <div id="content_3_bottom_c_bottom_2_des">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方对MH370失恋定为刑事调查马来西亚警方...<a href="#">查看详情>></a>
+                                    </div>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content_3_bottom_r">
+                	<div id="content_3_bottom_r_1"><a href="#"><img src="image/content_3_bottom_r_1.png"></a></div>
+                    <div id="content_3_bottom_r_2">
+                    	<div id="content_3_bottom_r_2_tit"><span id="content_3_bottom_r_2_tit_span">热点文章</span></div>
+                        <div id="content_3_bottom_r_2_des">
+                        	<ul>
+                            	<li><img src="image/content_3_bottom_r_2_des_img.jpg" ><a href="#">引起腰椎盘突出的原因是什么？</a></li>
+                                <li><img src="image/content_3_bottom_r_2_des_img.jpg" ><a href="#">腰椎盘突出有什么症状？</a></li>
+                                <li><img src="image/content_3_bottom_r_2_des_img.jpg" ><a href="#">腰椎盘突出怎么检查诊断？</a></li>
+                                <li><img src="image/content_3_bottom_r_2_des_img.jpg" ><a href="#">如何治疗腰椎盘突出？</a></li>
+                                <li><img src="image/content_3_bottom_r_2_des_img.jpg" ><a href="#">如何检查腰椎盘突出？</a></li> 
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--三层-->
+    </div>
+    <!--底部begin-->
+    <div class="footer">
+    	<div id="footer_1">
+        	<div id="footer_1_l">
+            	<ul>
+                	<li><a href="javascript:">收费公示</a></li>
+                    <li><a href="javascript:">医院环境</a></li>
+                    <li><a href="javascript:">荣誉资质</a></li>
+                </ul>
+            </div>
+            <div id="footer_1_r">
+                <div id="footer_1_r_tab_1">
+                    <ul>
+                        <li><span>总胆红素(酶法) 7元/项</span><span>天冬氨酸氨基转移酶	4元/项</span><span>总胆红素(酶法) 7元/项</span><span>总胆红素(酶法) 7元/项</span></li>
+                        <li><span>直接胆红素(酶法)	7元/项</span><span>碱性灵酸梅	5元/项</span><span>直接胆红素(酶法)	7元/项</span><span>直接胆红素(酶法)	7元/项</span></li>
+                        <li><span>全血细胞分析	 15元/份</span><span>肌酐(酶法) 6元/项</span><span>全血细胞分析	 15元/份</span><span>全血细胞分析	 15元/份</span></li>
+                    </ul>
+                </div>
+               	<div id="footer_1_r_tab_2" class="hide">
+                    <ul>
+                        <li><span>总胆红素(酶法) 7元/项2</span><span>天冬氨酸氨基转移酶	4元/项2</span><span>总胆红素(酶法) 7元/项2</span><span>总胆红素(酶法) 7元/项2</span></li>
+                        <li><span>直接胆红素(酶法)	7元/项2</span><span>碱性灵酸梅	5元/项2</span><span>直接胆红素(酶法)	7元/项2</span><span>直接胆红素(酶法)	7元/项2</span></li>
+                        <li><span>全血细胞分析	 15元/份2</span><span>肌酐(酶法) 6元/项2</span><span>全血细胞分析	 15元/份</span><span>全血细胞分析	 15元/份2</span></li>
+                    </ul>
+                </div>
+                <div id="footer_1_r_tab_3" class="hide">
+                    <ul>
+                        <li><span>总胆红素(酶法) 7元/项3</span><span>天冬氨酸氨基转移酶	4元/项3</span><span>总胆红素(酶法) 7元/项3</span><span>总胆红素(酶法) 7元/项3</span></li>
+                        <li><span>直接胆红素(酶法)	7元/项3</span><span>碱性灵酸梅	5元/项3</span><span>直接胆红素(酶法)	7元/项3</span><span>直接胆红素(酶法)	7元/项3</span></li>
+                        <li><span>全血细胞分析	 15元/份3</span><span>肌酐(酶法) 6元/项3</span><span>全血细胞分析	 15元/份3</span><span>全血细胞分析	 15元/份3</span></li>
+                    </ul>
+                </div>
+            </div>	
+        </div>
+        <div id="footer_2">
+        	<ul>
+            	<li><a href="#">首页</a>|</li>
+                <li><a href="#">医院概况</a>|</li>
+                <li><a href="#">疼痛中心</a>|</li>
+                <li><a href="#">最新资讯</a>|</li>
+                <li><a href="#">医师团队</a>|</li>
+                <li><a href="#">中医疗法</a>|</li>
+                <li><a href="#">来院路线</a>|</li>
+                <li><a href="#">预约挂号</a>|</li>
+                <li><a href="#">手机站</a>|</li>
+                <li><a href="#">微信网站</a>|</li>
+                <li><a href="#">网站地图</a></li> 
+            </ul>
+        </div>
+        <div id="footer_3">
+        	<div id="footer_3_l"><a href="#"><img src="image/footer_3_l_img.jpg"/></a></div>
+            <div id="footer_3_r">
+            	<ul>
+                	<li>Copyright 2014 All Rights Reserved.</li>
+                    <li>上海德杏堂中医馆版权所有	如有转载或引用本站文章涉及版权问题，请与我们联系</li>
+                    <li>医院地址:上海市普陀区清峪路384号-392号 邮编:200333 沪ICP备13028346号-1	医院电话:021-62181775</li>
+                    <li>网站信息仅做健康参考，并非医疗诊断和治疗依据，具体诊疗还请遵照经治医师意见.</li> 
+                </ul>
+            </div>
+        </div>
+    
+    </div>
+    <!--底部end-->
+</div>
+</body>
+</html>

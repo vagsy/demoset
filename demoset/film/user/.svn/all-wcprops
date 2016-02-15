@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/hp/!svn/ver/3208/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user
+END
+nopayorder.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/hp/!svn/ver/2284/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/nopayorder.jsp
+END
+forgetpassword.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/hp/!svn/ver/3206/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/forgetpassword.jsp
+END
+login.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/hp/!svn/ver/3207/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/login.jsp
+END
+resetpassword.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/hp/!svn/ver/2815/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/resetpassword.jsp
+END
+changepassword.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/hp/!svn/ver/3205/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/changepassword.jsp
+END
+order.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/hp/!svn/ver/3148/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/order.jsp
+END
+addpersonalinfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/hp/!svn/ver/3204/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/addpersonalinfo.jsp
+END
+usedorder.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/hp/!svn/ver/2416/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/usedorder.jsp
+END
+center.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/hp/!svn/ver/3161/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/center.jsp
+END
+refundorder.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/hp/!svn/ver/2260/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/refundorder.jsp
+END
+nottaketicketdetail.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/hp/!svn/ver/3105/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/nottaketicketdetail.jsp
+END
+unbundtel.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/hp/!svn/ver/2562/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/unbundtel.jsp
+END
+setpassword.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/hp/!svn/ver/2815/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/setpassword.jsp
+END
+orderdetail.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/hp/!svn/ver/3145/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/orderdetail.jsp
+END
+updateprofile.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/hp/!svn/ver/3208/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/updateprofile.jsp
+END
+register.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/hp/!svn/ver/3208/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/register.jsp
+END
+bundnewTel.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/hp/!svn/ver/2562/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/bundnewTel.jsp
+END
+nottaketicket.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/hp/!svn/ver/3087/wdyx3_5/branch/portal/wapportal/201408041022/WebRoot/WEB-INF/view/user/nottaketicket.jsp
+END

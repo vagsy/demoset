@@ -1,0 +1,114 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,address=no" name="format-detection"/>
+    <title>未取影票</title>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/ui.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=path %>/css/usercenter.css"/>
+    <script type="text/javascript" src="<%=path %>/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="<%=path %>/js/fn.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+	         	var path="<%=path %>";
+    			var userid="${user.uid }";
+				var param={};
+				param.uid=userid;
+				param.type=1;
+		    	$.ajax({
+						url:path+"/user/order.do",
+						type:"get",
+						data:param,
+						dataType:"json",
+						success: function(result){
+						console.log(result);
+							if(result.status===0){
+								var resdata=result.data;
+								var notTicket="";
+								var ulList="";
+								if(result.count==0){
+									$('.notTicket').html("<p style='text-align:center;'>您暂无未取影票</p>");
+								}else{
+									for(var i=0;i<resdata.length;i++){
+										var oAhref="<%=path %>"+"/user/orderdetail.do?orderid="+resdata[i].oid+"";
+										var oHref="<a href="+oAhref+">"+resdata[i].filmname+"</a>"
+										ulList +="<a href="+oAhref+" class='aHref'><ul class='notTicketList'><li class='li-left'><ul><li class='notTicketTitle'>"+oHref+"</li><li class='notTicketTime'>放映时间: "+new Date(resdata[i].filmstarttime*1000).format('yyyy-MM-dd hh:mm')+"</li></ul></li><li class='li-right'><a href="+oAhref+"><img src='<%=path %>/images/user/ticket-gt.png' /></a></li></ul></a>";
+										$('.notTicket').html(ulList); 
+									}
+								}
+							}else{
+								alert(result.msg);
+							}
+						},
+						error:function(xhr){
+							alert("获取影片列表失败！");
+						}
+				});
+		 })
+    </script>
+</head>
+<body>
+<div class="header pprl3 ptb8 headPos" align="center">
+    <a href="javascript:history.back(-1);" class="fl icon24 i400"></a><span class="title">未取影票</span>
+</div>
+<div class="conPos">
+	<div class="notTicket">
+	<%--     <ul class="notTicketList">
+	        <li class="li-left">
+	            <ul>
+	                <li class="notTicketTitle"><a href="#">特殊身份</a></li>
+	                <li class="notTicketTime">放映时间: 2013-11-26 21:15</li>
+	            </ul>
+	        </li>
+	        <li class="li-right"><a href="#"><img src="<%=path %>/images/user/ticket-gt.png" /></a></li>
+	    </ul> --%>
+	    <%-- <ul class="notTicketList">
+	        <li class="li-left">
+	            <ul>
+	                <li class="notTicketTitle"><a href="#">特殊身份</a></li>
+	                <li class="notTicketTime">放映时间: 2013-11-26 21:15</li>
+	            </ul>
+	        </li>
+	        <li class="li-right"><a href="#"><img src="<%=path %>/images/user/ticket-gt.png" /></a></li>
+	    </ul>
+	    <ul class="notTicketList">
+	        <li class="li-left">
+	            <ul>
+	                <li class="notTicketTitle"><a href="#">特殊身份</a></li>
+	                <li class="notTicketTime">放映时间: 2013-11-26 21:15</li>
+	            </ul>
+	        </li>
+	        <li class="li-right"><a href="#"><img src="<%=path %>/images/user/ticket-gt.png" /></a></li>
+	    </ul>
+	    <ul class="notTicketList">
+	        <li class="li-left">
+	            <ul>
+	                <li class="notTicketTitle"><a href="#">特殊身份</a></li>
+	                <li class="notTicketTime">放映时间: 2013-11-26 21:15</li>
+	            </ul>
+	        </li>
+	        <li class="li-right"><a href="#"><img src="<%=path %>/images/user/ticket-gt.png" /></a></li>
+	    </ul>
+	    <ul class="notTicketList">
+	        <li class="li-left">
+	            <ul>
+	                <li class="notTicketTitle"><a href="#">特殊身份</a></li>
+	                <li class="notTicketTime">放映时间: 2013-11-26 21:15</li>
+	            </ul>
+	        </li>
+	        <li class="li-right"><a href="#"><img src="<%=path %>/images/user/ticket-gt.png" /></a></li>
+	    </ul> --%>
+	</div>
+</div>
+</body>
+</html>

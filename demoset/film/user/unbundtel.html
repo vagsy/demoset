@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,address=no" name="format-detection"/>
+    <title>更换手机号-解绑当前手机号</title>
+    <link rel="stylesheet" type="text/css" href="../css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../css/ui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/usercenter.css"/>
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+				var path="..";
+				var eleForms = {
+			        eleSubmit: $('#btn-submit'),
+			        unbundTel: $('#unbund-tel'),
+			        verifyCode: $('#verify-code')
+			    }
+		        /* 验证手机号*/
+		        eleForms.unbundTel.blur(function () {
+		            var regTel = /^0?1\d{10}$/;
+		            if($(this).autofocus){
+		                $("p:eq(0)").nextAll("span").remove();
+		            } else if (!regTel.test($(this).val())) {
+		                $("p:eq(0)").nextAll("span").remove();
+		                $("p:eq(0)").after('<span class="verify-span">请输入正确手机号！</span>');
+		                return false;
+		            } else {
+		                $("p:eq(0)").nextAll("span").remove();
+		                $("p:eq(0)").after('<span class="verify-span">手机号格式正确！</span>');
+		            }
+		        }).keyup(function () {
+		            $(this).triggerHandler('blur');
+		        });
+		        /* 验证码 */
+/* 		        eleForms.verifyCode.blur(function () {
+		            if ($(this).val() == '' || $(this).val().length == 0) {
+		                $("p:eq(1)").nextAll("span").remove();
+		                $("p:eq(1)").after('<span class="verify-span">验证码不能为空！</span>');
+		                return false;
+		            }
+		        }).keyup(function () {
+		            $(this).triggerHandler('blur');
+		        }); */
+		        
+		        $('#verifiycode').click(function () {
+		        	/*用户是否存在*/
+			        var oldmobile=$('#unbund-tel').val();
+					var existuser={};
+					existuser.value=oldmobile;
+					existuser.type=1;
+				    $.ajax({
+							url:path+"/user/checkuserexist.do",
+							type:"get",
+							data:existuser,
+							dataType:"json",
+							success: function(result){
+							    if(result.isexist===0){
+							        alert("用户尚未注册");
+							    	window.location.href=path+"/user/toregist.do";
+								}else{
+									var param={};
+									param.mobile=oldmobile;
+									param.type=4;
+								   	$.ajax({
+										url:path+"/user/smsauthcode.do",
+										type:"get",
+										data:param,
+										dataType:"json",
+										success: function(result){
+											if(result.status===0){
+											//console.log(result);
+												alert("发送成功");
+											}else{
+												alert(result.msg);
+											}
+										},
+										error:function(xhr){
+											alert("抱歉，无法连接到网络！");
+										}
+									}); 
+								}
+							},
+							error:function(xhr){
+								alert("抱歉，无法连接到网络！");
+							}
+						});	
+				})
+				$('#btn-submit').click(function () {
+				    var regTel = /^0?1\d{10}$/;
+				    if (!regTel.test(eleForms.unbundTel.val())) {
+				        $("p:eq(0)").nextAll("span").remove();
+				        $("p:eq(0)").after('<span class="verify-span">请输入正确手机号！</span>');
+				        return false;
+				    } else if (eleForms.verifyCode.val() == '' || eleForms.verifyCode.val().length == 0) {
+				        $("p:eq(1)").nextAll("span").remove();
+				        $("p:eq(1)").after('<span class="verify-span">验证码不能为空！</span>');
+				        return false;
+				    } else {
+						/*用户是否存在*/
+						var oldmobile=$('#unbund-tel').val();
+						var oldcheckcode=$('#verify-code').val();
+						var existuser={};
+						existuser.value=oldmobile;
+						existuser.type=1;
+						$.ajax({
+							url:path+"/user/checkuserexist.do",
+							type:"get",
+							data:existuser,
+							dataType:"json",
+							success: function(result){
+							    if(result.isexist===0){
+							    	alert("用户尚未注册");
+						    		window.location.href=path+"/user/toregist.do";
+								}else{
+									window.location.href=path+"/user/bundnewtel.do?oldmobile="+oldmobile+"&oldcheckcode="+oldcheckcode+"";
+								}
+							},
+							error:function(xhr){
+								alert("抱歉，无法连接到网络！");
+							}
+						});
+				    }
+				});
+		})
+	</script>
+</head>
+<body>
+<div class="header pprl3 ptb8" align="center">
+    <a href="javascript:history.back(-1);" class="fl icon24 i400"></a><span class="title">解绑手机号</span>
+</div>
+<div class="con-words">当前绑定手机号为18600000000，为保证您的账号安全，手机验证码将发送到该手机进行解绑。解绑后，此手机号不能作为账号登录。</div>
+<div class="form-order">
+    <form action="" method="post">
+        <p>
+            <label for="unbund-tel">手机号</label><input type="tel" name="oldmobile" id="unbund-tel" placeholder="请输入您注册时的手机号"/>
+        </p>
+
+        <p>
+            <label for="verify-code">验证码</label><input type="text" name="oldcheckcode" id="verify-code" style="width: 42%;" placeholder="请输入短信中的验证码"/>
+            <span class="get-verification-code" id="verifiycode">获取验证码</span>
+        </p>
+        <input type="button" id="btn-submit" value="确定解绑"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,344 @@
+@charset "utf-8";
+/*jquery.ui.loading styles*/
+.loading {position:absolute;left: 0px;top: 0px;right: 0px;bottom: 0px;height: auto;width: auto;background-image: url(../images/loading.gif);background-position: center center;background-repeat: no-repeat;z-index: 999;}
+.Mask {
+	background-color: #000;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 9999;
+	display: none;
+	height: 100%;
+	width: 100%;	
+}
+
+/*jquery.ui.loading styles*/
+.confirm {display: block;position: fixed;z-index: 10000;top: 200px;left: 200px;height: auto;}
+.confirmMask {position: fixed;z-index: 9999;height: 100%;width: 100%;left: 0px;top: 0px;background-color: #CCC;display: none;}
+.confirm .background {display: block;background-color: #CCC;position: absolute;left: -10px;top: -10px;right: -10px;bottom: -10px;z-index: 1;}
+.confirm .body {
+	display: block;
+	border: 1px solid #999;
+	background-color: #FFF;
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+}
+.confirm .body .msgCnt {
+	padding: 20px;
+}
+
+.confirm .body .title {
+
+}
+
+.confirm .body .fBar {
+	display: block;
+	position: relative;
+	z-index: 10;
+	text-align: center;
+	background-color: #f2f2f3;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #ddd;
+}
+.confirm .fBar ul.buttonGroup {
+	display: block;
+	white-space: nowrap;
+}
+.confirm .fBar .buttonGroup li {
+	display: inline-block;
+	width: 50%;
+	white-space: nowrap;
+}
+.confirm .fBar .buttonGroup span  {
+	border-left: 1px solid #CCC;
+	display: block;
+	color: #000;
+	line-height: 48px;
+}
+.confirm .fBar .buttonGroup li:first-child span{
+	border-left: none;
+}
+
+.confirm .body div.text  {
+	line-height: 200%;
+	display: block;
+}
+/*jquery.ui.citySelector styles*/
+.uicity {
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	background-color: #FFF;
+	z-index: 10000;
+}
+.uicity .tbar {
+	background-color: #900;
+	padding: 0 3%;
+}
+.uicity .tbar h1.title {
+	color: #FFF;
+	text-align: center;
+}
+.uicity .city {
+	display: block;
+}
+.uicity .city .titleNode {
+	height: 32px;
+}
+
+.uicity .allcity {
+	overflow: hidden;
+	overflow-y: scroll;
+	position: relative;
+}
+.uicity .bar {
+	background-color: #CCC;
+	height: 32px;
+	line-height: 32px;
+	width: 100%;
+	text-indent: 3%;
+}
+.uicity .bar .firstletter {
+	text-transform: uppercase;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.uicity .bar.speedup{
+	-webkit-transform:translateZ(0);-moz-transform:translateZ(0);-ms-transform:translateZ(0);-o-transform:translateZ(0);transform:translateZ(0);
+}
+.uicity .quickletter {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	padding-top: 48px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	vertical-align: middle;
+}
+.uicity .quickletter a {
+	white-space: pre;
+	display: block;
+	height: 3.84%;
+	text-transform: uppercase;
+	width: 32px;
+	cursor: pointer;
+	text-align: center;
+	font-size: 9pt;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	color: #333;
+	text-decoration: none;
+	vertical-align: middle;
+}
+.uicity .city ul li {
+	height: 36px;
+	padding-top: 0;
+	padding-right: 8%;
+	padding-bottom: 0;
+	padding-left: 8%;
+	line-height: 36px;	
+}
+.uicity .city ul li:first-child{
+	border-top:none;
+}
+.uicinema .cinemals .cinema {
+	display: block;
+	padding-left: 3%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 3%;
+}
+.uicinema .cinema h2 {
+	line-height: normal;
+	font-size: 12pt;
+}
+.uicinema .cinemals .cinema address {
+	font-size: 9pt;
+}
+.tab .tabHead {
+	margin: 0px;
+	padding: 0px;
+	white-space: nowrap;
+}
+.tab ul.tabHead li {
+	list-style-position: inside;
+	list-style-type: none;
+	display: inline-block;
+}
+.uiseat {
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	display: block;
+}
+.uiseat .seatmap {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	display: block;
+	padding-right: 20px;
+	padding-left: 20px;
+
+
+}
+
+.uiseat .hsbar th,.uiseat .vsbar td{
+	font-family: Verdana, Geneva, sans-serif; color:#fff;
+}
+.uiseat .hsbar table th,.uiseat .vsbar table th{
+	font-size: 10px;
+	color: #FFF;
+	line-height: normal;
+}
+.uiseat .vsbar {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 16px;
+	opacity:.6;
+}
+.uiseat .vsbar ul li {
+	display: block;
+	color: #FFF;
+	text-align: center;
+	font-family: sans-serif, Geneva, Verdana;
+	font-size: 10px;
+	line-height: normal;
+	background-color: #000;
+}
+.uiseat .hsbar {
+	position: absolute;
+	left: 20px;
+	bottom: 0px;
+	right: 20px;
+	white-space: nowrap;
+	opacity: .6;
+}
+.uiseat .hsbar ul{
+	display: block;
+}
+.uiseat .hsbar ul li {
+	display: inline-block;
+	color: #FFF;
+	white-space: nowrap;
+	font-family: sans-serif, Geneva, Verdana;
+	font-size: 10px;
+	text-align: center;
+	vertical-align: top;
+	background-color: #333;
+}
+.uiseat .hsbar table {
+	width: 100%;
+}
+
+.uiseat .seatmap table {
+	width: 100%;
+	vertical-align: top;
+}
+.uiseat .seatmap table tr{
+	display: block;
+}
+.uiseat .seatmap table tr td {
+	position: relative;
+	line-height: normal;
+	padding: 0px;
+	margin: 0px;
+}
+.uiseat .seatmap table tr td span{
+	vertical-align: top;
+}
+.uiseat .seatmap .seat_area {
+	position: relative;
+	left: 1px;
+	top: 1px;
+	right: 1px;
+	bottom: 1px;
+	background-color: #0CF;
+	display: block;
+}
+
+.uiseat .seatmap .available_seat em{
+	display: inline-block;
+	background-image: url(../images/cinema_seat.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.uiseat .seatmap .unavailable_seat em{
+	display: inline-block;
+	background-image: url(../images/cinema_seat_off.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+.uiseat .seatmap .available_seat.selected em{
+	background-image: url(../images/cinema_seat_on.png);
+}
+.uiseat .seatmap ul li {
+	display: block;
+	line-height: normal;
+	white-space: nowrap;
+}
+.uiseat .seatmap ul li span  {
+	display: inline-block;
+	background-color: #FFF;
+	vertical-align: top;
+	padding: 1px;
+}
+.uiseat .seatmap ul li span em {
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
+}
+.uiseat .errorText{
+	color: #555;
+}
+.uiseat table th, .uiseat table td {
+	text-align: center;
+	vertical-align: middle;
+	line-height: normal;
+}
+.uiseat .normal th{
+	background-color: #999;
+	line-height: normal;
+}
+.uiseat .normal th,.uiseat .normal th em {
+	font-size: 10px;
+	
+}
+.table {
+	width: 200px;
+	border-collapse: separate;
+}
+.table tr td {
+	background-color: #09C;
+	vertical-align: top;
+	line-height: normal;
+	display: inline-block;
+	height: 16px;
+}
+.table tr {
+	display: block;
+	background-color: #C60;
+	height: 16px;
+}
+
+
+.table tr td span {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	background-color: #CCC;
+	vertical-align: top;
+	line-height: normal;
+}

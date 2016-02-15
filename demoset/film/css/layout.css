@@ -1,0 +1,357 @@
+@charset "utf-8";
+.tbar {
+	background-color: #f3f4f6;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #dcdee4;
+	border-bottom-color: #CCC;
+	padding:8px 3%;
+}
+.tbar span {
+	vertical-align: middle;
+	display: inline-block;
+}
+.tbar.center {
+	text-align: center;
+}
+.tbar.dzdp {
+	background-color: #FFF;
+}
+.header {
+	background-color: #1e96d4;
+	text-align: center;
+	line-height: 24px;
+	color: #FFF;
+}
+.header .btngroup {
+	display: inline-block;
+}
+.header .btngroup .btn {
+	font-size: 10pt;
+}
+.header .current_city {
+	display: inline-block;
+}
+.header span,.header strong,.header a {
+	vertical-align: middle;
+	font-size: 22px;
+}
+.header .goback {
+	font-size: 22px;
+}
+.header .title {
+	margin-left: -32px;
+}
+.thermometer {
+	display: inline-block;
+	height: 32px;
+	width: 19px;
+	position: relative;
+}
+.thermometer .thermometer_cover {
+	height: 32px;
+	width: 19px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: block;
+	background-image: url(../images/thermometer.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	background-size:100% 100%;
+}
+.thermometer .thermometer_value {
+	position: absolute;
+	left: 0px;
+	top: 4px;
+	right: 0px;
+	bottom: 3px;
+	z-index: 0;
+}
+.thermometer .thermometer_value em {
+	display: block;
+	height: 0%;
+	background-color: #f44b4b;
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+}
+.infols li span {
+	vertical-align: top;
+	display: inline-block;
+	white-space: normal;
+}
+ul.cinemainfo{
+	margin-top: 10px;
+}
+ul.cinemainfo li:first-child{ border-top:none;}
+ul.cinemainfo li {
+	line-height: 180%;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #dee0e5;
+	padding-left: 28px;
+	list-style-type: none;
+	background-repeat: no-repeat;
+	background-position: 0px 8px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+ul.cinemainfo li a{
+	line-height: 180%;
+}
+ul.cinemainfo li.office {
+	background-image: url(../images/office.png);
+}
+ul.cinemainfo li.location {
+	background-image: url(../images/location.png);
+}
+ul.cinemainfo li.roadsign {
+	background-image: url(../images/roadsign.png);
+}
+ul.cinemainfo li.park {
+	background-image: url(../images/park.png);
+}
+ul.cinemainfo li.office {
+	background-image: url(../images/office.png);
+}
+ul.cinemainfo li.tel {
+	background-image: url(../images/tel.png);
+}
+ul.cinemainfo li.seat {
+	background-image: url(../images/seat.png);
+}
+.movies li {
+	display: block;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #c8cbd4;
+	padding-top: 6px;
+	padding-right: 3%;
+	padding-bottom: 6px;
+	padding-left: 3%;
+}
+.movies li:first-child{
+	border-top:none;
+}
+.movies li table {
+	width: 100%;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.movies li table tr td {
+
+}
+.movies .desc {
+	height: 40px;
+	overflow: hidden;
+	line-height: 20px;
+	padding-top: 4px;
+}
+.movies h2 {
+	line-height: normal;
+}
+.movies .propertys span {
+	font-size: 9pt;
+}
+.movies .propertys .type {
+	color: #1895b4;
+}
+.movies .propertys .date {
+	color: #8c9094;
+}
+.moviebox {
+	border: 1px solid #88b4ca;
+	padding: 6px 10px;
+	margin-top: 16px;
+	position: relative;
+}
+.moviebox a {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	display: block;
+}
+
+.moviebox p {
+	line-height: 32px;
+	display: block;
+	height: 32px;
+	font-size: 12pt;
+}
+.moviebox p span{
+	vertical-align: middle;
+	display: inline-block;
+}
+.moviebox .time {
+	font-weight: bold;
+}
+.moviebox .price {
+	color: #c9191a;
+}
+.iconHelp {
+	display: block;
+	background-color: #FFF;
+}
+.iconHelp li {
+	float: left;
+	width: 33.3%;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+}
+
+.iconHelp li div {
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #CCC;
+	line-height: 42px;
+	display: block;
+	height: 42px;
+	text-align: center;
+}
+.iconHelp li:first-child div{
+	border-left:none;
+}
+.iconHelp li div span{
+	vertical-align: middle;
+}
+.cnt {
+	padding-right: 3%;
+	padding-left: 3%;
+}
+table.grid {
+	width: 100%;
+}
+.yinmu {
+	background-image: url(../images/dote.png);
+	background-repeat: repeat-x;
+	background-position: left center;
+}
+.yinmu .caption {
+	background-color: #FFF;
+}
+.legend span {
+	vertical-align: middle;
+}
+.selectedSeats ul li {
+	display: block;
+	float: left;
+	width: 33.33%;
+}
+.cellls li {
+	display: block;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+}
+.product_photo img{
+	height:80px; width:80px;
+}
+
+input[name=product_count]{
+	line-height: 24px;
+	text-align: center;
+	height: 24px;
+}
+/*订单*/
+.order { width: 100%; }
+.order td {border:1px solid #cecdcd; }
+.order tr:nth-child(odd) {background:#f3f4f6;}
+.order tr:nth-child(even) {background:#f9f9f9;}
+.filmlable {width:75px;height:46px;letter-spacing:5px;text-align:center;color:#3287a0;line-height:46px; }
+.filminfo { padding-left: 8px; }
+.filmseat { padding-left: 8px; line-height: 26px; }
+.ordertitle {font-size:16px;color:#3a93a9;line-height:18px;margin:5px; }
+.ordertitle span {font-size:14px;color:#000000;margin-left:10px;}
+.importstyle {margin:7px 5px;border:1px solid #c8cbd4;display:block;padding:6px 0px; }
+.importstyle label {border-right:1px solid #c8cbd4;display:inline-block;padding-right: 4px;}
+.importstyle .inputstyle {padding-left:70px;height:22px;line-height:22px;position:relative;padding-right: 6px;}
+.default {color:#b8b8b8; }
+.importstyle input {overflow:hidden; }
+.tipinfo {background:#81afc7;border-radius:6px;color:#ffffff;font-size:13px;width:90px;height:25px;line-height:25px;position:absolute;right:20px; top:-2px;text-align:center; }
+.list{height:38px;font-size:16px; padding-left:10px;border-top:1px solid #dcdee4; border-bottom:1px solid #dcdee4;background:#f3f4f6;line-height:38px; }
+.list.last{ border-top: 0 none; }
+.list .rightdirection {height:38px; }
+.event li {padding:15px 5px; }
+.close {display:inline-block;width:30px;height:52px;background:url("../images/content/close.png") no-repeat center; background-size:18px 18px;-webkit-background-size:18px 18px;  }
+.box {
+	border: 1px solid #659bca;
+	border-radius: 6px;
+	height: 36px;
+	line-height: 18px;
+	padding-top: 7px;
+	padding-right: 10px;
+	padding-bottom: 7px;
+	padding-left: 10px;
+}
+.eventinfo {font-size:12px;color:#617d9f; }
+.describe { font-size: 16px; line-height: 36px; height: 36px;margin:5px; }
+.transfer {font-size:12px;line-height:18px;color:#6c778c;margin:5px;}.field {
+	display: block;
+	border: 1px solid #CCC;
+	padding: 8px;
+}
+.field input {
+	display: block;
+}
+.payMethods li {
+	display: block;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: #CCC;
+	border-bottom-color: #CCC;
+	border-left-color: #CCC;
+	padding: 6px;
+}
+.payMethods li:first-child{
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;	
+}.payMethods li span {
+	vertical-align: middle;
+	display: inline-block;
+}
+.yhls li {
+	border-top-width: 1px;
+	border-top-style: dashed;
+	border-top-color: #CCC;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.yhls li:first-child {
+	border-top-style: none;
+}.yhls li h2, .yhls li p {
+	line-height: 150%;
+}
+.popdialog {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 10000;
+}
+.popdialog .scrollCnt {
+	position: absolute;
+	left: 0px;
+	top: 40px;
+	right: 0px;
+	bottom: 0px;
+	overflow: scroll;
+	background-color: #FFF;
+}

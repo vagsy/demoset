@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no,address=no" name="format-detection"/>
+    <title>用户登录</title>
+    <link rel="stylesheet" type="text/css" href="../css/global.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="../css/ui.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/usercenter.css"/>
+    <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.ui.base.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.mask.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.confirm.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.loading.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.citySelector.js"></script>
+	<script type="text/javascript" src="../js/jquery.ui.tab.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			   /**单选框**/
+		    //var oAutoStyleBg = autoCheckbox.style.backgroundImage;
+	/* 	    autoCheckbox.onclick = function () {
+		        if ((autoCheckbox.className == "m-radio-box-0")) {
+		            autoCheckbox.className = "m-radio-box-1";
+		            autologin.removeAttribute('checked');
+		        } else {
+		            autoCheckbox.className = "m-radio-box-0";
+		            autologin.setAttribute("checked","checked");
+		        }
+		    }  */
+		    var loginTel = $('#login-tel'),
+		        loginPsd = $('#login-psd');
+		    loginTel.blur(function () {
+            var regTel = /^1[3|4|5|8][0-9]\d{8}$/;
+            if(!regTel.test($(this).val())) {
+	                $("p:eq(0)").nextAll("span").remove();
+	                //$("p:eq(0)").after('<span class="verify-span">手机号码格式错误！</span>');
+	                return false;
+	            } else {
+	                $("p:eq(0)").nextAll("span").remove();
+	                //$("p:eq(0)").after('<span class="verify-span">手机号填写成功！</span>');
+	            }
+	        }).keyup(function () {
+	            $(this).triggerHandler('blur');
+	        });
+		    loginPsd.blur(function () {
+	            regPsd = /[0-9a-zA-Z]{6,20}/;
+	            if (!regPsd.test($(this).val())) {
+	                $("p:eq(1)").nextAll("span").remove();
+	                //$("p:eq(1)").after('<span class="verify-span">密码格式错误！</span>');
+	                return false;
+	            } else {
+	                $("p:eq(1)").nextAll("span").remove();
+	            }
+	        }).keyup(function () {
+	            $(this).triggerHandler('blur');
+	        });
+	        
+		   	var path="..";
+	        $('#btn-submit').click(function () {
+		        var eleForms = {
+	                eleSubmit: $('#btn-submit'),
+	                loginTel: $('#login-tel'),
+	                loginPsd: $('#login-psd'),
+	                autoLogin: $('input[name="autoLogin"][checked]').val()
+	            }
+	            var regTel = /^1[3|4|5|8][0-9]\d{8}$/,
+	                regPsd = /[0-9a-zA-Z]{6,20}/;
+	            if (!regTel.test(eleForms.loginTel.val())) {
+	                $("p:eq(0)").nextAll("span").remove();
+	                $("p:eq(0)").after('<span class="verify-span">手机号码格式错误！</span>');
+	                return false;
+	            } else if (!regPsd.test(eleForms.loginPsd.val())) {
+	                $("p:eq(1)").nextAll("span").remove();
+	                $("p:eq(1)").after('<span class="verify-span">密码格式错误！</span>');
+	                return false;
+	            }else{
+		            var loginTel = $('#login-tel').val(),
+			           	loginPsd = $('#login-psd').val();
+					var param={};
+					param.mobile=loginTel;
+					param.password=loginPsd;
+ 					/* if(eleForms.autoLogin=="0"){
+			          	param.cookieValue=30;
+		            }else{
+		            	param.cookieValue=0;
+		            } */
+					$.ajax({
+						url:path+"/user/login.do",
+						type:"post",
+						data:param,
+						dataType:"json",
+						success: function(result){
+							if(result.status===0){
+								window.location.href=path+"/user/center.do";
+							}else{
+								/**用户是否存在**/
+								var loginTel = $('#login-tel').val();
+								var existuser={};
+								existuser.value=loginTel;
+								existuser.type=1;
+								$.ajax({
+									url:path+"/user/checkuserexist.do",
+									type:"get",
+									data:existuser,
+									dataType:"json",
+									success: function(result){
+									    if(result.isexist===0){
+									    	$.Confirm({html:"此手机号码尚未注册，是否现在注册？",title:"登录失败",buttons:{"取消":function(){},"去注册": function (){window.location.href=path+"/user/toregist.do";}}});
+										}else{
+											alert("用户名或密码错误");
+										}
+									},
+									error:function(xhr){
+										alert("抱歉，无法连接到网络！");
+									}
+								});
+							}
+						},
+						error:function(xhr){
+							alert("抱歉，无法连接到网络！");
+						}
+					});
+	            }
+	        });
+		})
+	</script>
+</head>
+<body>
+<div class="header pprl3 ptb8" align="center">
+    <a href="javascript:history.back(-1);" class="fl icon24 i400"></a><span class="title">登录</span>
+</div>
+<div class="form-order">
+    <form action="" method="post">
+        <p>
+            <label id="login-input0" for="login-tel"><img src="../images/user/login_tel.png"/>手机号</label><input type="tel" name="mobile" value="" autofocus
+                                                                                     id="login-tel" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+                                                                                     
+        </p>
+
+        <p>
+            <label id="login-input1" for="login-psd"><img src="../images/user/login-soct.png"/>密&nbsp;&nbsp;码</label><input type="password" name="loginPsd" value="" id="login-psd" maxlength="20"/>
+        </p>
+<!--
+        <div class="autologin">
+            <span class="m-radio-box-0" id="autoCheckbox"><a style=" opacity: 0;">aa</a></span>
+            <input type="checkbox" style="display: none;" name="autoLogin" id="autologin" value="0" checked="checked" />
+            30天内自动登录
+        </div>-->
+        <input type="button" id="btn-submit" value="登录"/>
+    </form>
+</div>
+<div class="form-order">
+    <div class="login-zhuce"><a href="../user/forgetpasswd.do">忘记密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../user/toregist.do">注册账号</a></div>
+</div>
+</body>
+</html>

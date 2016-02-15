@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>webSet</title>
+    <style type="text/css">
+        html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,code,del,em,img,strong,sub,sup,dl,dt,dd,ol,ul,li,form,label,table,tbody,tfoot,tr,th,td,embed,menu,input,select,button{margin:0;padding:0}{ margin: 0; padding: 0; resize:none; border:none; outline:none; -webkit-appearance: none; }
+        ol,ul { list-style:none; }
+        /*h1,h2,h3,h4,h5,h6,p,em{ font-size:100%; word-wrap:break-word; font-weight: normal; font-style: normal; }*/
+        a:active, a:focus{ outline:none; }
+        button::-moz-focus-inner,input::-moz-focus-inner{ padding:0; border:0; }
+        table{ border-collapse:collapse; border-spacing:0; }
+        .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; font-size:0; }
+        .clearfix{ zoom:1; }
+        a{ color: #4c4948; text-decoration: none; }
+        body{
+            font-family: "微软雅黑", helvetica, arial;
+            background: #F6F6F6;
+        }
+        table{ border-collapse:collapse; border-spacing:0;}
+        @font-face {
+            font-family: 'dust_westregular';
+            src: url('fonts/dust_west-webfont.eot');
+            src: url('fonts/dust_west-webfont.eot?#iefix') format('embedded-opentype'),
+            url('fonts/dust_west-webfont.woff2') format('woff2'),
+            url('fonts/dust_west-webfont.woff') format('woff'),
+            url('fonts/dust_west-webfont.ttf') format('truetype'),
+            url('fonts/dust_west-webfont.svg#dust_westregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        .myblog{
+            float: left;
+            width: 100%;
+            height: 500px;
+            background-image: url(images/sinablogb.jpg);
+            background-repeat: no-repeat;
+            z-index: 0;
+            position:absolute;
+        }
+        #div1{ position:absolute;z-index: 10; width:500px; margin:50px 0 0 30px;border:1px solid #09F; border-radius:3px;box-shadow:5px 5px 5px 0 #0099CC;float:left;}
+        ul{ list-style:none; float:left; width:100%;}
+        li{ float:left; width:200px; margin:5px;}
+        #div1 ul li a{ font-size:14px; font-family: "微软雅黑", helvetica, arial; color: #000000;}
+        #div1 ul li table{ width: 490px;}
+        #tab tbody{
+            display: none;
+            border: 1px solid #ccc;
+        }
+        #tab tbody tr,#tab tbody td{
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .bord{
+            border: 1px solid #ccc;
+        }
+        .myName{
+            margin: 40px 0 0 50px;
+            font-family: 'dust_westregular';
+            font-size: 35px;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="myblog">
+            <div class="myName">On The Road,And then go on a long journey...</div>
+            <div id="div1">
+                <ul>
+                    <li>
+                        <table id="tab">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">站点一——医疗站</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>首页</td>
+                                    <td><a href="tengtong" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>列表页</td>
+                                    <td><a href="tengtong/liebiaoye.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>病种页</td>
+                                    <td><a href="tengtong/bingzhongye.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>列表页</td>
+                                    <td><a href="tengtong/wenzhangye.html" target="_blank">查看</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <table id="tab">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">站点二——企业站</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>首页</td>
+                                    <td><a href="company" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>公司介绍</td>
+                                    <td><a href="company/company.php" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>新闻资讯</td>
+                                    <td><a href="company/news.php" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>工程案例</td>
+                                    <td><a href="company/project.php" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>客户留言</td>
+                                    <td><a href="company/message.php" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>联系我们</td>
+                                    <td><a href="company/contact.php" target="_blank">查看</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <table id="tab">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">站点三——手机站页面</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>绑定新手机号</td>
+                                    <td><a href="film/user/bundnewTel.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>个人中心</td>
+                                    <td><a href="film/user/center.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>修改密码</td>
+                                    <td><a href="film/user/changepassword.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>忘记密码</td>
+                                    <td><a href="film/user/forgetpassword.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>登录</td>
+                                    <td><a href="film/user/login.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>未支付影票</td>
+                                    <td><a href="film/user/nopayorder.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>未取影票</td>
+                                    <td><a href="film/user/nottaketicket.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>未取影票详情</td>
+                                    <td><a href="film/user/nottaketicketdetail.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>我的影票</td>
+                                    <td><a href="film/user/order.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>退款中</td>
+                                    <td><a href="film/user/refundorder.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>注册</td>
+                                    <td><a href="film/user/register.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>重置密码</td>
+                                    <td><a href="film/user/resetpassword.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>设置密码</td>
+                                    <td><a href="film/user/setpassword.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>解绑手机号</td>
+                                    <td><a href="film/user/unbundtel.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>已使用</td>
+                                    <td><a href="film/user/usedorder.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>协议详情</td>
+                                    <td><a href="film/user/xieyi.html" target="_blank">查看</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <table id="tab">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">站点四——文档管理</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>首页</td>
+                                    <td><a href="pro_dsp/index.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>列表页面</td>
+                                    <td><a href="pro_dsp/list.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>详情页面</td>
+                                    <td><a href="pro_dsp/detail.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>登录页面</td>
+                                    <td><a href="pro_dsp/login.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>编辑页面</td>
+                                    <td><a href="pro_dsp/upfile_edit.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>预览页面</td>
+                                    <td><a href="pro_dsp/preview.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>上传页面</td>
+                                    <td><a href="pro_dsp/upfile.html" target="_blank">查看</a></td>
+                                </tr>
+                                <tr>
+                                    <td>个人中心页面</td>
+                                    <td><a href="pro_dsp/usercenter.html" target="_blank">查看</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <table id="tab">
+                            <thead>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;">个人简历</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="note/wind_note.htm" target="_blank">点击查看</a></td>
+                                    <td><a href="note/wind_note.docx" target="_blank">下载</a></td>
+                                </tr>
+                        </table>
+                    </li>
+                </ul>
+            <div>
+        </div>
+        <script src="js/jquery.js" type="text/javascript"></script>
+        <script>
+        	var oDiv = document.getElementById('div1'),
+        		oUls = oDiv.getElementsByTagName('ul');
+        	
+        	for(var i=0;i<oUls.length;i++){
+        		var oUl = oUls[i];
+        		switch(i%2){
+        			case 0:
+        				oUl.style.backgroundColor = "#CCFFFF";
+        				break;
+        			case 1:
+        				oUl.style.backgroundColor = "#99CCFF";
+        		}
+        		;(function(i){
+        			var oUl = oUls[i];
+        			oUl.onmouseover = function(){
+        				oUl.style.backgroundColor = "#FFFFCC";
+        			}
+        			oUl.onmouseout = function(){
+        				switch(i%2){
+        					case 0:
+        						oUl.style.backgroundColor = "#CCFFFF";
+        						break;
+        					case 1:
+        						oUl.style.backgroundColor = "#99CCFF";
+        				}
+        			}
+        		})(i);
+        	}
+
+            
+            $("#tab > thead").click(function(){
+                if($(this).next().is(":visible")){
+                    $(this).next().hide();
+                    //$(this).removeClass("bord");
+                }else{
+                    $(this).next().show().parent().parent().parent().siblings().children().children().children()
+                            .next().hide();
+                    if($(this).next().is(":visible")){
+                        //$(this).addClass("bord");
+                        $(this).parent().parent().parent().siblings().children().children().children().removeClass("bord");
+                    }else{
+                        //$(this).removeClass("bord");
+                    }
+                    return false;
+                }
+            });
+        </script>
+    </body>
+</html>
